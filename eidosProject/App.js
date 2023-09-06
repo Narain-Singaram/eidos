@@ -59,7 +59,7 @@ export default function App() {
       />
       <TextInput
         style={styles.input}
-        placeholder="What Grade was course taken?"
+        placeholder="What Grade was course"
         value={grade}
         onChangeText={(text) => setGrade(text)}
       />
