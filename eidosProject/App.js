@@ -11,12 +11,6 @@ export default function App() {
   const [gpa, setGPA] = useState(0); // GPA calculated based on course data
   const [error, setError] = useState('');
 
-  // Portfolio section
-  const [satScore, setSatScore] = useState(''); // SAT score input
-  const [extracurriculars, setExtracurriculars] = useState(''); // Extracurriculars input
-  const [leadershipRoles, setLeadershipRoles] = useState(''); // Leadership roles input
-  const [volunteerHours, setVolunteerHours] = useState(''); // Volunteer hours input
-
   // Function to add a course to the list
   const addCourse = () => {
     if (!courseName || !grade || !credits || !courseType) {
@@ -65,7 +59,7 @@ export default function App() {
       />
       <TextInput
         style={styles.input}
-        placeholder="Grade (e.g., 4.0)"
+        placeholder="What Grade was course taken?"
         value={grade}
         onChangeText={(text) => setGrade(text)}
       />
@@ -89,34 +83,19 @@ export default function App() {
         <Text style={styles.buttonText}>Calculate GPA</Text>
       </TouchableOpacity>
       {gpa > 0 ? <Text style={styles.result}>Your GPA: {gpa}</Text> : null}
-
-      {/* Portfolio Section */}
-      <Text style={styles.subtitle}>Portfolio</Text>
-      <TextInput
-        style={styles.input}
-        placeholder="SAT Score"
-        value={satScore}
-        onChangeText={(text) => setSatScore(text)}
+      <Text style={styles.subtitle}>Submitted Courses:</Text>
+      <FlatList
+        data={courses}
+        keyExtractor={(item, index) => index.toString()}
+        renderItem={({ item, index }) => (
+          <View style={styles.courseItem}>
+            <Text>{index + 1}. Course: {item.courseName}</Text>
+            <Text>Grade: {item.grade}</Text>
+            <Text>Credits: {item.credits}</Text>
+            <Text>Type: {item.courseType}</Text>
+          </View>
+        )}
       />
-      <TextInput
-        style={styles.input}
-        placeholder="Extracurriculars"
-        value={extracurriculars}
-        onChangeText={(text) => setExtracurriculars(text)}
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="Leadership Roles"
-        value={leadershipRoles}
-        onChangeText={(text) => setLeadershipRoles(text)}
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="Volunteer Hours"
-        value={volunteerHours}
-        onChangeText={(text) => setVolunteerHours(text)}
-      />
-
       <StatusBar style="auto" />
     </ScrollView>
   );
@@ -125,27 +104,26 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#e3f2fd', // Original background color
+    backgroundColor: '#f0f0f0',
     paddingHorizontal: 20,
-    paddingVertical: 40,
+    paddingVertical: 60,
     justifyContent: 'center',
-    alignItems: 'center',
   },
   title: {
     fontSize: 28,
     fontWeight: 'bold',
     marginBottom: 20,
-    color: '#191D88', // Original title color
+    color: '#191D88',
     textAlign: 'center',
   },
   input: {
     width: '100%',
     borderWidth: 1,
-    borderColor: 'gray',
+    borderColor: '#ccc',
     marginVertical: 10,
     padding: 12,
-    borderRadius: 5, // Original rounded corners
-    backgroundColor: 'white', // Original input background color
+    borderRadius: 8,
+    backgroundColor: '#fff',
     fontSize: 16,
   },
   error: {
@@ -155,15 +133,13 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   button: {
-    backgroundColor: '#007acc', // Original button color
+    backgroundColor: '#191D88',
     paddingVertical: 14,
-    paddingHorizontal: 20, // Adjust the horizontal padding as needed
-    borderRadius: 50, // Increased border radius
+    borderRadius: 50,
     marginVertical: 10,
-    width: '100%', // Make the button take up the full width
   },
   buttonText: {
-    color: 'white',
+    color: '#fff',
     fontSize: 18,
     fontWeight: 'bold',
     textAlign: 'center',
@@ -172,14 +148,27 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: 'bold',
     marginTop: 20,
-    color: '#191D88', // Original result color
+    color: '#007acc',
     textAlign: 'center',
   },
   subtitle: {
-    fontSize: 24,
+    fontSize: 18,
     fontWeight: 'bold',
     marginTop: 20,
-    color: '#191D88', // Original subtitle color
+    color: '#191D88',
     textAlign: 'center',
+  },
+  courseItem: {
+    backgroundColor: '#ffffff',
+    borderWidth: 1,
+    borderColor: '#ccc',
+    padding: 16,
+    marginVertical: 8,
+    width: '100%',
+    borderRadius: 12,
+    shadowColor: '#000',
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    elevation: 3,
   },
 });
