@@ -15,9 +15,11 @@
       "**/*"
     ],
     "ios": {
+      "googleservicesFile": "./GoogleService-Info.plist",
       "supportsTablet": true
     },
     "android": {
+      "googleservicesFile": "google-services.json",
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
@@ -25,6 +27,19 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "plugins": [
+      "./node_modules/expo-sample-pedometer/expo-sample-pedometer-plugins.js",
+      "@react-native-firebase/app",
+      [
+        "expo-build-properties",
+      
+      {
+        "ios": {
+          "useFrameworks": "static"
+        }
+      }
+      ] 
+    ]
   }
 }
