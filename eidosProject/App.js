@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button } from '@rneui/themed';
+import { Button, Icon  } from '@rneui/themed';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity, ScrollView, FlatList } from 'react-native';
 
@@ -77,13 +77,33 @@ export default function App() {
         onChangeText={(text) => setCourseType(text)}
       />
       {error ? <Text style={styles.error}>{error}</Text> : null}
-      <TouchableOpacity style={styles.button} onPress={addCourse}>
-        <Text style={styles.buttonText}>Add Course</Text>
-      </TouchableOpacity>
-      <Button title="Solid" />
-      <TouchableOpacity style={styles.button} onPress={calculateGPA}>
-        <Text style={styles.buttonText}>Calculate GPA</Text>
-      </TouchableOpacity>
+      <Button 
+        title="Add Course" 
+        onPress={addCourse}
+        buttonStyle={{
+          backgroundColor: '#1d3557',
+          borderWidth: 2,
+          borderColor: 'white',
+          borderRadius: 30,
+        }}
+        titleStyle={{ fontWeight: 'bold', fontSize: 23 }}
+        containerStyle={{
+        }}
+      />
+      <br></br>
+      <Button 
+        title="Calculate GPA" 
+        onPress={calculateGPA}
+        buttonStyle={{
+          backgroundColor: '#1d3557',
+          borderWidth: 2,
+          borderColor: 'white',
+          borderRadius: 30,
+        }}
+        titleStyle={{ fontWeight: 'bold', fontSize: 23 }}
+        containerStyle={{
+        }}
+      />
       {gpa > 0 ? <Text style={styles.result}>Your GPA: {gpa}</Text> : null}
       <Text style={styles.subtitle}>Submitted Courses:</Text>
       <FlatList
