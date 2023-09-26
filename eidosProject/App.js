@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+// import { buttonVariants } from "eidosProject/~/components/ui/button.jsx";
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity, ScrollView, FlatList } from 'react-native';
 
@@ -49,7 +50,7 @@ export default function App() {
   };
 
   return (
-    <ScrollView contentContainerStyle={styles.container}>
+    <View style={styles.container}>
       <Text style={styles.title}>Eidos GPA Calculator</Text>
       <TextInput
         style={styles.input}
@@ -96,8 +97,11 @@ export default function App() {
           </View>
         )}
       />
+      {/* <Button asChild>
+        <Link href="/login">Hey</Link>
+      </Button> */}
       <StatusBar style="auto" />
-    </ScrollView>
+      </View>
   );
 }
 
