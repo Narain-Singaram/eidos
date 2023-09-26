@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "720610053634",
+    "project_id": "eidos-d205b",
+    "storage_bucket": "eidos-d205b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:720610053634:android:80b10d4b547d4c9e50611b",
+        "android_client_info": {
+          "package_name": "com.fblaproject.eidos"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA_bZJJ3Ba7ya9Div-h83B0iQow_rO2o3k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
