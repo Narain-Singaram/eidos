@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-// import { buttonVariants } from "eidosProject/~/components/ui/button.jsx";
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity, ScrollView, FlatList } from 'react-native';
 
@@ -8,7 +7,7 @@ export default function App() {
   const [courseName, setCourseName] = useState(''); // Course name input
   const [grade, setGrade] = useState(''); // Grade input
   const [credits, setCredits] = useState(''); // Credits input
-  const [courseType, setCourseType] = useState(''); // Course type input
+  const [courseType, setCourseType] = useState(''); //a Course type input
   const [gpa, setGPA] = useState(0); // GPA calculated based on course data
   const [error, setError] = useState('');
 
@@ -97,9 +96,6 @@ export default function App() {
           </View>
         )}
       />
-      {/* <Button asChild>
-        <Link href="/login">Hey</Link>
-      </Button> */}
       <StatusBar style="auto" />
       </View>
   );
