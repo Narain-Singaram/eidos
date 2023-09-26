@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Button } from '@rneui/themed';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity, ScrollView, FlatList } from 'react-native';
 
@@ -79,6 +80,7 @@ export default function App() {
       <TouchableOpacity style={styles.button} onPress={addCourse}>
         <Text style={styles.buttonText}>Add Course</Text>
       </TouchableOpacity>
+      <Button title="Solid" />
       <TouchableOpacity style={styles.button} onPress={calculateGPA}>
         <Text style={styles.buttonText}>Calculate GPA</Text>
       </TouchableOpacity>
